@@ -53,10 +53,8 @@
 
   <div class="section">
       <h2><span class="badge">Google Trends</span>POVA 8 产品声量走势（近30天）</h2>
-      <a href="https://trends.google.com/trends/explore?date=today%201-m&geo=TH&q=pova%208&hl=zh-CN" target="_blank" style="display:flex;align-items:center;justify-content:center;height:200px;background:linear-gradient(135deg,#eef2ff,#f3f0ff);border-radius:12px;text-decoration:none;color:var(--blue);font-size:16px;font-weight:600;transition:transform .15s;" onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform='scale(1)'">
-        <span>📊 点击查看 Google Trends - POVA 8 泰国声量走势</span>
-      </a>
-      <div class="note">Google Trends 不支持 iframe 嵌入，点击上方卡片直接跳转查看实时数据</div>
+      <div class="chart"><canvas id="gtChart"></canvas></div>
+      <div class="note">数据来源：Google Trends · 关键词：pova 8 · 地区：泰国 · 7/15 达到峰值 100</div>
     </div>
 
   <div class="two-col">
@@ -88,6 +86,10 @@
   </div>
 </div>
 <script>
+// Google Trends POVA 8 数据
+const gtLabels = ["6月20日","6月21日","6月22日","6月23日","6月24日","6月25日","6月26日","6月27日","6月28日","6月29日","6月30日","7月01日","7月02日","7月03日","7月04日","7月05日","7月06日","7月07日","7月08日","7月09日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日"];
+const gtValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 41, 44, 51, 45, 32, 27, 32, 30, 100, 58, 63, 81, 52, 56];
+
 const googleLabels = ["7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日"];
 const googleBrand = [8.18, 7.60, 5.58, 6.05, 6.05, 6.13, 5.63, 6.22, 6.14, 6.22, 6.34, 6.57, 6.67];
 const googleProduct = [29.50, 27.90, 9.52, 10.29, 11.27, 11.27, 10.59, 12.94, 12.82, 15.48, 19.70, 20.59, 20.59];
@@ -110,6 +112,19 @@ function commonLineOptions(yLabel) {
     scales:{ y:{ beginAtZero:true, ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:yLabel } } }
   };
 }
+
+new Chart(document.getElementById('gtChart'), {
+  type:'line',
+  data:{ labels:gtLabels, datasets:[
+    { label:'POVA 8 搜索热度', data:gtValues, borderColor:'#4285f4', backgroundColor:'rgba(66,133,244,.12)', tension:.35, fill:true, pointRadius:2, pointHoverRadius:5 },
+  ]},
+  options: {
+    responsive:true,
+    maintainAspectRatio:false,
+    plugins:{ legend:{ position:'bottom' } },
+    scales:{ y:{ beginAtZero:true, max:100, title:{ display:true, text:'搜索热度（峰值=100）' } } }
+  }
+});
 
 new Chart(document.getElementById('googleChart'), {
   type:'line',
