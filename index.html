@@ -28,15 +28,15 @@
 <body>
 <div class="header">
   <h1>🇹🇭 泰国 POVA 8 声量监控看板</h1>
-  <p>Google Trends + TikTok Video View + TikTok Search + 消耗进度 · 数据更新至 7月16日</p>
+  <p>Google Trends + TikTok Video View + TikTok Search + 消耗进度 · 数据更新至 7月20日</p>
 </div>
 <div class="container">
   <div class="grid kpis">
-    <div class="card kpi"><div class="label">Google 品牌 SOV（最新）</div><div class="value">6.14%</div><div class="sub">近10日均值 6.06%</div></div>
-    <div class="card kpi"><div class="label">Google 产品 SOV（最新）</div><div class="value">12.82%</div><div class="sub">近10日均值 12.19%</div></div>
-    <div class="card kpi"><div class="label">TikTok VV SOV（最新）</div><div class="value">14.21%</div><div class="sub">近14日均值 5.91%</div></div>
-    <div class="card kpi"><div class="label">TikTok Search SOV（最新）</div><div class="value">1.08%</div><div class="sub">近14日均值 0.94%</div></div>
-    <div class="card kpi" style="border-left:4px solid var(--purple);"><div class="label">消耗进度（最新）</div><div class="value" style="color:var(--purple);">27.24%</div><div class="sub">截至 7月15日 · 日消耗 ¥43,209</div></div>
+    <div class="card kpi"><div class="label">Google 品牌 SOV（最新）</div><div class="value">6.67%</div><div class="sub">近10日均值 6.22%</div></div>
+    <div class="card kpi"><div class="label">Google 产品 SOV（最新）</div><div class="value">20.59%</div><div class="sub">近10日均值 14.37%</div></div>
+    <div class="card kpi"><div class="label">TikTok VV SOV（最新）</div><div class="value">12.11%</div><div class="sub">近14日均值 7.40%</div></div>
+    <div class="card kpi"><div class="label">TikTok Search SOV（最新）</div><div class="value">1.17%</div><div class="sub">近14日均值 1.17%</div></div>
+    <div class="card kpi" style="border-left:4px solid var(--purple);"><div class="label">消耗进度（最新）</div><div class="value" style="color:var(--purple);">38.07%</div><div class="sub">截至 7月19日 · 日消耗 ¥7,573</div></div>
   </div>
 
   <div class="two-col">
@@ -47,7 +47,7 @@
     <div class="section">
       <h2><span class="badge badge-green">TikTok</span>Video View SOV 趋势</h2>
       <div class="chart"><canvas id="vvChart"></canvas></div>
-      <div class="note">重点观察：7/12-7/14 消耗加速期间，VV SOV 从 9.73% 攀升至 14.21%，联动显著。</div>
+      <div class="note">7/15 消耗大幅放量当天 VV SOV 达峰值 22.71%，之后回落至 12% 区间。</div>
     </div>
   </div>
 
@@ -55,12 +55,12 @@
     <div class="section">
       <h2><span class="badge badge-purple">消耗</span>消耗进度趋势</h2>
       <div class="chart"><canvas id="spendChart"></canvas></div>
-      <div class="note">消耗进度从 7/1 的 0.15% 增长至 7/15 的 27.24%，7/15 出现大幅放量（日消耗 ¥43,209）。</div>
+      <div class="note">消耗进度从 7/1 的 0.15% 增长至 7/19 的 38.07%。7/15 出现大幅放量（日消耗 ¥43,209），之后日均消耗约 ¥6,000-7,800。</div>
     </div>
     <div class="section">
       <h2><span class="badge" style="background:#fef2f2;color:var(--red);">TikTok</span>Search SOV 趋势</h2>
       <div class="chart"><canvas id="searchChart"></canvas></div>
-      <div class="note">Search SOV 整体低于 1.2%，7/8、7/14 出现小幅峰值，适合追踪活动节点放量效果。</div>
+      <div class="note">Search SOV 在 7/15 放量当天达到峰值 2.32%，之后回落至 1.17%（7/17），整体维持在 1% 左右。</div>
     </div>
   </div>
 
@@ -69,30 +69,30 @@
     <table class="table">
       <thead><tr><th>模块</th><th>最新值</th><th>日期</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td>Google 品牌 SOV</td><td>6.14%</td><td>7月16日</td><td>TECNO 搜索份额</td></tr>
-        <tr><td>Google 产品 SOV</td><td>12.82%</td><td>7月16日</td><td>POVA 8 搜索份额</td></tr>
-        <tr><td>TikTok VV SOV</td><td>14.21%</td><td>7月14日</td><td>付费曝光占比</td></tr>
-        <tr><td>TikTok Search SOV</td><td>1.08%</td><td>7月14日</td><td>搜索曝光占比</td></tr>
-        <tr><td style="color:var(--purple);font-weight:600;">消耗进度</td><td style="color:var(--purple);font-weight:700;">27.24%</td><td>7月15日</td><td>预算消耗进度，7/15 大幅放量</td></tr>
+        <tr><td>Google 品牌 SOV</td><td>6.67%</td><td>7月20日</td><td>TECNO 搜索份额，持续上升趋势</td></tr>
+        <tr><td>Google 产品 SOV</td><td>20.59%</td><td>7月20日</td><td>POVA 8 搜索份额，7/18 起稳定在 20%+</td></tr>
+        <tr><td>TikTok VV SOV</td><td>12.11%</td><td>7月17日</td><td>付费曝光占比，7/15 峰值 22.71% 后回落</td></tr>
+        <tr><td>TikTok Search SOV</td><td>1.17%</td><td>7月17日</td><td>搜索曝光占比，7/15 峰值 2.32% 后回落</td></tr>
+        <tr><td style="color:var(--purple);font-weight:600;">消耗进度</td><td style="color:var(--purple);font-weight:700;">38.07%</td><td>7月19日</td><td>预算消耗进度，7/18-19 日消耗约 ¥7,500-7,800</td></tr>
       </tbody>
     </table>
-    <div class="note">数据源：飞书电子表格 · Token: QiiDsPaX8hLV9St2yCUc49F1nnd</div>
+    <div class="note">数据源：飞书电子表格 · Token: N3Oasq6Y5hAPhxtpiP4c7Yv8nHg</div>
   </div>
 </div>
 <script>
-const googleLabels = ["7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日"];
-const googleBrand = [8.18, 7.60, 5.58, 6.05, 6.05, 6.13, 5.63, 6.22, 6.14];
-const googleProduct = [29.50, 27.90, 9.52, 10.29, 11.27, 11.27, 10.59, 12.94, 12.82];
+const googleLabels = ["7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日"];
+const googleBrand = [8.18, 7.60, 5.58, 6.05, 6.05, 6.13, 5.63, 6.22, 6.14, 6.22, 6.34, 6.57, 6.67];
+const googleProduct = [29.50, 27.90, 9.52, 10.29, 11.27, 11.27, 10.59, 12.94, 12.82, 15.48, 19.70, 20.59, 20.59];
 
-const vvLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日"];
-const vvSov = [2.77, 3.86, 3.74, 3.62, 3.77, 3.49, 2.13, 4.60, 6.80, 5.82, 5.67, 9.73, 12.60, 14.21];
+const vvLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日"];
+const vvSov = [2.77, 3.86, 3.74, 3.62, 3.77, 3.49, 2.13, 4.60, 6.80, 5.82, 5.67, 9.73, 12.60, 14.21, 22.71, 12.35, 12.11];
 
-const searchLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日"];
-const searchSov = [0.95, 1.00, 0.95, 0.92, 0.91, 0.87, 0.86, 1.11, 1.02, 0.96, 0.88, 0.85, 0.86, 1.08];
+const searchLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日"];
+const searchSov = [0.95, 1.00, 0.95, 0.92, 0.91, 0.87, 0.86, 1.11, 1.02, 0.96, 0.88, 0.85, 0.86, 1.08, 2.32, 1.38, 1.17];
 
-const spendLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日"];
-const spendProgress = [0.15, 0.47, 0.91, 1.36, 1.80, 2.25, 2.62, 3.10, 3.94, 4.68, 5.35, 6.42, 8.26, 9.75, 27.24];
-const spendAmount = [377.84, 787.93, 1094.01, 1101.95, 1092.26, 1100.60, 905.72, 1199.99, 2071.13, 1828.13, 1665.45, 2631.65, 4555.12, 3666.62, 43209.13];
+const spendLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日"];
+const spendProgress = [0.15, 0.47, 0.91, 1.36, 1.80, 2.25, 2.62, 3.10, 3.94, 4.68, 5.35, 6.42, 8.26, 9.75, 27.24, 29.45, 31.82, 35.00, 38.07];
+const spendAmount = [377.84, 787.93, 1094.01, 1101.95, 1092.26, 1100.60, 905.72, 1199.99, 2071.13, 1828.13, 1665.45, 2631.65, 4555.12, 3666.62, 43209.13, 5443.81, 5857.89, 7863.00, 7573.20];
 
 function commonLineOptions(yLabel) {
   return {
