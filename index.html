@@ -102,12 +102,6 @@
     </div>
   </div>
 
-  <div class="section">
-    <h2><span class="badge" style="background:#f0fdfa;color:#14b8a6;">💬</span>每日广告评论趋势</h2>
-    <div class="chart" style="height:280px;"><canvas id="commentChart"></canvas></div>
-    <div class="note">7/15 评论爆发（223条），与消耗放量同步。之后日均评论维持在 25-43 条，用户互动活跃。</div>
-  </div>
-
   <div class="two-col">
     <div class="section">
       <h2><span class="badge">一页总览</span>最新关键数据</h2>
@@ -148,9 +142,6 @@ new Chart(document.getElementById('googleChart'), { type:'line', data:{ labels:g
 new Chart(document.getElementById('vvChart'), { type:'line', data:{ labels:vvLabels, datasets:[{ label:'TT Video View SOV', data:vvSov, borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.10)', tension:.3, fill:true, pointRadius:3 }]}, options: commonLineOptions('TikTok VV SOV') });
 new Chart(document.getElementById('searchChart'), { type:'line', data:{ labels:searchLabels, datasets:[{ label:'TT Search SOV', data:searchSov, borderColor:'#ef4444', backgroundColor:'rgba(239,68,68,.10)', tension:.3, fill:true, pointRadius:3 }]}, options: commonLineOptions('TikTok Search SOV') });
 new Chart(document.getElementById('spendChart'), { type:'line', data:{ labels:spendLabels, datasets:[{ label:'消耗进度（%）', data:spendProgress, borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,.12)', tension:.3, fill:true, pointRadius:4, yAxisID:'y' },{ label:'曝光完成进度（%）', data:exposureProgress, borderColor:'#0d9488', backgroundColor:'rgba(13,148,136,.10)', tension:.3, fill:true, pointRadius:4, yAxisID:'y', borderDash:[5,3] },{ label:'日消耗金额', data:spendAmount, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.08)', tension:.3, fill:false, pointRadius:3, yAxisID:'y1', borderDash:[2,2] }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, position:'left', ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'进度（%）' } }, y1:{ beginAtZero:true, position:'right', ticks:{ callback:(v)=>v.toLocaleString() }, title:{ display:true, text:'日消耗金额' }, grid:{ drawOnChartArea:false } } } } });
-const commentLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日","7月22日"];
-const commentCounts = [3,6,5,8,6,7,5,14,5,8,11,8,20,71,223,25,36,39,43,41,37,7];
-new Chart(document.getElementById('commentChart'), { type:'bar', data:{ labels:commentLabels, datasets:[{ label:'每日评论数', data:commentCounts, backgroundColor:'rgba(20,184,166,.6)', borderColor:'#14b8a6', borderWidth:1 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, title:{ display:true, text:'评论数' } } } } });
 </script>
 </body>
 </html>
