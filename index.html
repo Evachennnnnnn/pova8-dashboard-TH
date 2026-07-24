@@ -28,16 +28,16 @@
 <body>
 <div class="header">
   <h1>🇹🇭 泰国 POVA 8 声量监控看板</h1>
-  <p>Google Trends + TikTok Video View + TikTok Search + 消耗进度 + 曝光KPI · 数据更新至 7月23日</p>
+  <p>Google Trends + TikTok Video View + TikTok Search + 消耗进度 + 曝光KPI · 数据更新至 7月24日</p>
 </div>
 <div class="container">
   <div class="grid kpis">
-    <div class="card kpi"><div class="label">Google 品牌 SOV（最新）</div><div class="value">6.47%</div><div class="sub">近15日均值 6.33%</div></div>
-    <div class="card kpi"><div class="label">Google 产品 SOV（最新）</div><div class="value">23.17%</div><div class="sub">近15日均值 16.95%</div></div>
-    <div class="card kpi"><div class="label">TikTok VV SOV（最新）</div><div class="value">18.99%</div><div class="sub">近20日均值 9.02%</div></div>
-    <div class="card kpi"><div class="label">TikTok Search SOV（最新）</div><div class="value">1.16%</div><div class="sub">近20日均值 1.08%</div></div>
-    <div class="card kpi" style="border-left:4px solid var(--purple);"><div class="label">消耗进度（最新）</div><div class="value" style="color:var(--purple);">45.69%</div><div class="sub">截至 7月22日 · 日消耗 ¥2,987</div></div>
-    <div class="card kpi" style="border-left:4px solid var(--teal);"><div class="label">曝光完成进度（最新）</div><div class="value" style="color:var(--teal);">63.47%</div><div class="sub">曝光目标 250M · 累计 158.67M</div></div>
+    <div class="card kpi"><div class="label">Google 品牌 SOV（最新）</div><div class="value">6.60%</div><div class="sub">近16日均值 6.34%</div></div>
+    <div class="card kpi"><div class="label">Google 产品 SOV（最新）</div><div class="value">23.17%</div><div class="sub">近16日均值 17.34%</div></div>
+    <div class="card kpi"><div class="label">TikTok VV SOV（最新）</div><div class="value">18.34%</div><div class="sub">近21日均值 9.37%</div></div>
+    <div class="card kpi"><div class="label">TikTok Search SOV（最新）</div><div class="value">1.21%</div><div class="sub">近21日均值 1.09%</div></div>
+    <div class="card kpi" style="border-left:4px solid var(--purple);"><div class="label">消耗进度（最新）</div><div class="value" style="color:var(--purple);">47.13%</div><div class="sub">截至 7月23日 · 日消耗 ¥3,565</div></div>
+    <div class="card kpi" style="border-left:4px solid var(--teal);"><div class="label">曝光完成进度（最新）</div><div class="value" style="color:var(--teal);">70.01%</div><div class="sub">曝光目标 250M · 累计 175.0M</div></div>
     <div class="card kpi" style="border-left:4px solid #ec4899;"><div class="label">TikTok Buzz 滤镜使用数</div><div class="value" style="color:#ec4899;">16.8K</div><div class="sub">KPI 20K · 完成 84.0%</div></div>
     <div class="card kpi" style="border-left:4px solid #14b8a6;"><div class="label">广告舆情正面率</div><div class="value" style="color:#14b8a6;">45.3%</div><div class="sub">628 条评论 · 负面率 4.7%</div></div>
   </div>
@@ -50,7 +50,7 @@
     <div class="section">
       <h2><span class="badge badge-green">TikTok</span>Video View SOV 趋势</h2>
       <div class="chart"><canvas id="vvChart"></canvas></div>
-      <div class="note">7/15 消耗大幅放量当天 VV SOV 达峰值 22.71%，7/20 回升至 18.99%，整体保持高位。</div>
+      <div class="note">7/15 消耗大幅放量当天 VV SOV 达峰值 22.71%，之后稳定在 12%-19% 区间，远超 10% KPI。</div>
     </div>
   </div>
 
@@ -59,21 +59,21 @@
       <div class="chart"><canvas id="gtChart"></canvas></div>
       <div class="note">
         <strong>📊 数据亮点：</strong>
-        7/9 起量（52）→ <strong style="color:var(--orange);">7/15 峰值 100</strong>（与消耗放量同步）→ 7/21 回升至 82 → 7/23 为 49，维持高位震荡。
+        7/9 起量（52）→ <strong style="color:var(--orange);">7/15 峰值 100</strong>（与消耗放量同步）→ 7/21 回升至 82 → 7/24 为 40，维持高位震荡。
       </div>
     </div>
 
   <div class="section">
     <h2><span class="badge badge-purple">消耗 & 曝光</span>消耗进度 & 曝光KPI完成进度趋势</h2>
     <div class="chart"><canvas id="spendChart"></canvas></div>
-    <div class="note">消耗进度从 7/1 的 0.15% 增长至 7/22 的 45.69%。曝光完成进度从 0.99% 增长至 63.47%（目标 250M，累计 158.67M）。</div>
+    <div class="note">消耗进度从 7/1 的 0.15% 增长至 7/23 的 47.13%。曝光完成进度从 0.99% 增长至 70.01%（目标 250M，累计 175.0M）。</div>
   </div>
 
   <div class="two-col">
     <div class="section">
       <h2><span class="badge" style="background:#fef2f2;color:var(--red);">TikTok</span>Search SOV 趋势</h2>
       <div class="chart"><canvas id="searchChart"></canvas></div>
-      <div class="note">Search SOV 在 7/15 放量当天达到峰值 2.32%，7/20 为 1.16%，整体维持在 0.85%-1.2% 区间。</div>
+      <div class="note">Search SOV 在 7/15 放量当天达到峰值 2.32%，7/21 为 1.21%，整体维持在 0.85%-1.2% 区间。</div>
     </div>
     <div class="section">
       <h2><span class="badge" style="background:#f0fdfa;color:#14b8a6;">💬</span>广告舆情健康度</h2>
@@ -108,12 +108,12 @@
       <table class="table">
         <thead><tr><th>模块</th><th>最新值</th><th>KPI（完成进度）</th><th>日期</th><th>说明</th></tr></thead>
         <tbody>
-          <tr><td>Google 品牌 SOV</td><td>6.47%</td><td>—</td><td>7月23日</td><td>TECNO 搜索份额，稳定在 6%-7% 区间</td></tr>
-          <tr><td>Google 产品 SOV</td><td>23.17%</td><td>—</td><td>7月23日</td><td>POVA 8 搜索份额，持续走高</td></tr>
-          <tr><td>TikTok VV SOV</td><td>18.99%</td><td style="color:var(--green);font-weight:600;">10%（189.9% ✅）</td><td>7月20日</td><td>付费曝光占比，7/15 峰值后仍保持高位</td></tr>
-          <tr><td>TikTok Search SOV</td><td>1.16%</td><td style="color:var(--red);font-weight:600;">10%（11.6% ⚠️）</td><td>7月20日</td><td>搜索曝光占比，整体维持在 1% 左右</td></tr>
-          <tr><td style="color:var(--purple);font-weight:600;">消耗进度</td><td style="color:var(--purple);font-weight:700;">45.69%</td><td>—</td><td>7月22日</td><td>预算消耗进度，7/22 日消耗 ¥2,987</td></tr>
-          <tr><td style="color:var(--teal);font-weight:600;">曝光完成进度</td><td style="color:var(--teal);font-weight:700;">63.47%</td><td>—</td><td>7月20日</td><td>曝光目标 250M，累计 158.67M</td></tr>
+          <tr><td>Google 品牌 SOV</td><td>6.60%</td><td>—</td><td>7月24日</td><td>TECNO 搜索份额，稳定在 6%-7% 区间</td></tr>
+          <tr><td>Google 产品 SOV</td><td>23.17%</td><td>—</td><td>7月24日</td><td>POVA 8 搜索份额，持续走高</td></tr>
+          <tr><td>TikTok VV SOV</td><td>18.34%</td><td style="color:var(--green);font-weight:600;">10%（183.4% ✅）</td><td>7月21日</td><td>付费曝光占比，远超 KPI</td></tr>
+          <tr><td>TikTok Search SOV</td><td>1.21%</td><td style="color:var(--red);font-weight:600;">10%（12.1% ⚠️）</td><td>7月21日</td><td>搜索曝光占比，整体维持在 1% 左右</td></tr>
+          <tr><td style="color:var(--purple);font-weight:600;">消耗进度</td><td style="color:var(--purple);font-weight:700;">47.13%</td><td>—</td><td>7月23日</td><td>预算消耗进度，7/23 日消耗 ¥3,565</td></tr>
+          <tr><td style="color:var(--teal);font-weight:600;">曝光完成进度</td><td style="color:var(--teal);font-weight:700;">70.01%</td><td>—</td><td>7月21日</td><td>曝光目标 250M，累计 175.0M</td></tr>
           <tr><td style="color:#ec4899;font-weight:600;">TikTok Buzz 滤镜使用数</td><td style="color:#ec4899;font-weight:700;">16.8K</td><td style="color:var(--orange);font-weight:600;">20K（84.0% ⚠️）</td><td>7月22日</td><td>Buzz 滤镜累计使用次数，距目标还差 3.2K</td></tr>
           <tr><td style="color:#14b8a6;font-weight:600;">广告舆情正面率</td><td style="color:#14b8a6;font-weight:700;">45.3%</td><td>—</td><td>7月22日</td><td>628 条评论，负面率仅 4.7%，整体健康</td></tr>
         </tbody>
@@ -123,19 +123,19 @@
   </div>
 </div>
 <script>
-const gtLabels = ["6月20日","6月21日","6月22日","6月23日","6月24日","6月25日","6月26日","6月27日","6月28日","6月29日","6月30日","7月01日","7月02日","7月03日","7月04日","7月05日","7月06日","7月07日","7月08日","7月09日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日","7月22日","7月23日"];
-const gtValues = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52,48,36,25,31,30,100,60,66,83,59,59,82,65,49];
-const googleLabels = ["7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日","7月22日","7月23日"];
-const googleBrand = [8.18,7.60,5.58,6.05,6.05,6.13,5.63,6.22,6.14,6.22,6.34,6.57,6.67,6.70,6.53,6.47];
-const googleProduct = [29.50,27.90,9.52,10.29,11.27,11.27,10.59,12.94,12.82,15.48,19.70,20.59,20.59,22.22,25.96,23.17];
-const vvLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日"];
-const vvSov = [2.77,3.86,3.74,3.62,3.77,3.49,2.13,4.60,6.80,5.82,5.67,9.73,12.60,14.21,22.71,12.35,12.11,15.39,16.09,18.99];
-const searchLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日"];
-const searchSov = [0.95,1.00,0.95,0.92,0.91,0.87,0.86,1.11,1.02,0.96,0.88,0.85,0.86,1.08,2.32,1.38,1.17,1.13,1.19,1.16];
-const spendLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日","7月22日"];
-const spendProgress = [0.15,0.47,0.91,1.36,1.80,2.25,2.62,3.10,3.94,4.68,5.35,6.42,8.26,9.75,27.24,29.45,31.82,35.00,38.07,41.35,44.48,45.69];
-const exposureProgress = [0.99,2.29,3.54,4.85,6.23,7.45,8.15,9.71,12.10,14.07,16.09,19.69,24.53,29.59,37.65,41.57,45.70,51.38,57.14,63.47];
-const spendAmount = [377.84,787.93,1094.01,1101.95,1092.26,1100.60,905.72,1199.99,2071.13,1828.13,1665.45,2631.65,4555.12,3666.62,43209.13,5443.81,5857.89,7863.00,7573.20,8118.64,7716.42,2987.24];
+const gtLabels = ["6月20日","6月21日","6月22日","6月23日","6月24日","6月25日","6月26日","6月27日","6月28日","6月29日","6月30日","7月01日","7月02日","7月03日","7月04日","7月05日","7月06日","7月07日","7月08日","7月09日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日","7月22日","7月23日","7月24日"];
+const gtValues = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52,28,25,30,32,100,56,61,82,58,57,82,64,52,40];
+const googleLabels = ["7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日","7月22日","7月23日","7月24日"];
+const googleBrand = [8.18,7.60,5.58,6.05,6.05,6.13,5.63,6.22,6.14,6.22,6.34,6.57,6.67,6.70,6.53,6.47,6.60];
+const googleProduct = [29.50,27.90,9.52,10.29,11.27,11.27,10.59,12.94,12.82,15.48,19.70,20.59,20.59,22.22,25.96,23.17,23.17];
+const vvLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日"];
+const vvSov = [2.77,3.86,3.74,3.62,3.77,3.49,2.13,4.60,6.80,5.82,5.67,9.73,12.60,14.21,22.71,12.35,12.11,15.39,16.09,18.99,18.34];
+const searchLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日"];
+const searchSov = [0.95,1.00,0.95,0.92,0.91,0.87,0.86,1.11,1.02,0.96,0.88,0.85,0.86,1.08,2.32,1.38,1.17,1.13,1.19,1.16,1.21];
+const spendLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日","7月22日","7月23日"];
+const spendProgress = [0.15,0.47,0.91,1.36,1.80,2.25,2.62,3.10,3.94,4.68,5.35,6.42,8.26,9.75,27.24,29.45,31.82,35.00,38.07,41.35,44.48,45.69,47.13];
+const exposureProgress = [0.99,2.29,3.54,4.85,6.23,7.45,8.15,9.71,12.10,14.07,16.09,19.69,24.53,29.59,37.65,41.57,45.70,51.38,57.14,63.47,70.01];
+const spendAmount = [377.84,787.93,1094.01,1101.95,1092.26,1100.60,905.72,1199.99,2071.13,1828.13,1665.45,2631.65,4555.12,3666.62,43209.13,5443.81,5857.89,7863.00,7573.20,8118.64,7716.42,2987.24,3564.66];
 function commonLineOptions(yLabel) { return { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:yLabel } } } }; }
 new Chart(document.getElementById('gtChart'), { type:'line', data:{ labels:gtLabels, datasets:[{ label:'POVA 8 搜索热度', data:gtValues, borderColor:'#4285f4', backgroundColor:'rgba(66,133,244,.12)', tension:.35, fill:true, pointRadius:2, pointHoverRadius:5 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, max:100, title:{ display:true, text:'搜索热度（峰值=100）' } } } } });
 new Chart(document.getElementById('googleChart'), { type:'line', data:{ labels:googleLabels, datasets:[{ label:'品牌 SOV（TECNO）', data:googleBrand, borderColor:'#4f46e5', backgroundColor:'rgba(79,70,229,.10)', tension:.35, fill:true, pointRadius:3 },{ label:'产品 SOV（POVA 8）', data:googleProduct, borderColor:'#f97316', backgroundColor:'rgba(249,115,22,.10)', tension:.35, fill:true, pointRadius:3 }]}, options: commonLineOptions('Google SOV') });
