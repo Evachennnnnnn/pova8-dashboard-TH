@@ -6,23 +6,43 @@
 <title>泰国 POVA 8 声量监控看板</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-:root { --bg:#f4f7fb; --card:#fff; --text:#1f2937; --muted:#6b7280; --blue:#4f46e5; --orange:#f97316; --green:#10b981; --red:#ef4444; --purple:#8b5cf6; --teal:#0d9488; }
-* { box-sizing:border-box; } body { margin:0; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--text); }
-.header { background: linear-gradient(135deg,#0f172a,#4f46e5); color:#fff; padding:28px 32px; }
-.header h1 { margin:0; font-size:26px; } .header p { margin:8px 0 0; opacity:.85; }
-.container { max-width: 1320px; margin:0 auto; padding:24px; }
+:root { --bg:#08111f; --bg2:#0f172a; --card:rgba(255,255,255,.95); --text:#0f172a; --muted:#475569; --blue:#2563eb; --orange:#ea580c; --green:#059669; --red:#dc2626; --purple:#7c3aed; --teal:#0f766e; --line:rgba(148,163,184,.18); }
+* { box-sizing:border-box; } body { margin:0; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at top left, #172554 0%, #08111f 42%, #050816 100%); color:var(--text); }
+body::before { content:""; position:fixed; inset:0; pointer-events:none; background: radial-gradient(circle at 20% 20%, rgba(96,165,250,.10), transparent 22%), radial-gradient(circle at 80% 0%, rgba(167,139,250,.08), transparent 20%), radial-gradient(circle at 70% 85%, rgba(45,212,191,.06), transparent 24%); }
+.header { position:relative; overflow:hidden; padding:34px 32px 28px; color:#fff; background: linear-gradient(135deg, rgba(30,41,59,.92), rgba(37,99,235,.86)); border-bottom:1px solid rgba(255,255,255,.12); box-shadow: 0 20px 50px rgba(0,0,0,.22); }
+.header::after { content:""; position:absolute; right:-90px; top:-80px; width:260px; height:260px; border-radius:50%; background: radial-gradient(circle, rgba(255,255,255,.16), transparent 65%); }
+.header h1 { margin:0; font-size:30px; letter-spacing:.2px; } .header p { margin:10px 0 0; opacity:.92; font-size:13px; }
+.container { max-width: 1320px; margin:0 auto; padding:24px; position:relative; z-index:1; }
 .grid { display:grid; gap:16px; } .kpis { grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); margin-bottom:16px; }
-.card { background:var(--card); border-radius:16px; padding:18px 20px; box-shadow: 0 2px 10px rgba(15,23,42,.06); }
-.kpi .label { font-size:13px; color:var(--muted); margin-bottom:8px; } .kpi .value { font-size:28px; font-weight:800; line-height:1.1; } .kpi .sub { font-size:12px; margin-top:6px; color:var(--muted); }
-.section { background:var(--card); border-radius:16px; padding:20px; box-shadow: 0 2px 10px rgba(15,23,42,.06); margin-bottom:16px; }
-.section h2 { margin:0 0 12px; font-size:17px; }
+.card { background:var(--card); border:1px solid rgba(255,255,255,.35); border-radius:18px; padding:18px 20px; box-shadow: 0 14px 35px rgba(2,6,23,.18); backdrop-filter: blur(12px); }
+.kpi { position:relative; overflow:hidden; }
+.kpi::after { content:""; position:absolute; inset:auto -20% -50% auto; width:110px; height:110px; border-radius:50%; background: radial-gradient(circle, rgba(96,165,250,.14), transparent 70%); }
+.kpi .label { font-size:12px; color:#334155; margin-bottom:8px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; display:flex; justify-content:space-between; align-items:center; } .kpi .value { font-size:30px; font-weight:900; line-height:1.05; color:#020617; display:flex; align-items:center; gap:8px; } .kpi .sub { font-size:12px; margin-top:8px; color:#475569; }
+.trend-arrow { font-size:14px; font-weight:700; }
+.trend-up { color:#059669; }
+.trend-down { color:#dc2626; }
+.trend-flat { color:#64748b; }
+.status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
+.status-green { background:#10b981; box-shadow:0 0 6px rgba(16,185,129,.6); }
+.status-yellow { background:#f59e0b; box-shadow:0 0 6px rgba(245,158,11,.6); }
+.status-red { background:#ef4444; box-shadow:0 0 6px rgba(239,68,68,.6); }
+.hero { background:linear-gradient(135deg, rgba(99,102,241,.95), rgba(168,85,247,.95)); border-radius:20px; padding:28px; margin-bottom:20px; color:#fff; box-shadow:0 20px 50px rgba(0,0,0,.2); position:relative; overflow:hidden; }
+.hero::before { content:""; position:absolute; right:-60px; top:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(255,255,255,.15), transparent 70%); }
+.hero h3 { margin:0 0 12px; font-size:22px; font-weight:800; }
+.hero-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:16px; margin-top:16px; }
+.hero-stat { background:rgba(255,255,255,.15); border-radius:12px; padding:14px; backdrop-filter:blur(8px); }
+.hero-stat-label { font-size:11px; opacity:.85; margin-bottom:6px; font-weight:600; }
+.hero-stat-value { font-size:20px; font-weight:900; }
+.section { background: rgba(255,255,255,.93); border:1px solid rgba(255,255,255,.35); border-radius:20px; padding:20px; box-shadow: 0 14px 35px rgba(2,6,23,.18); backdrop-filter: blur(12px); margin-bottom:16px; }
+.section h2 { margin:0 0 12px; font-size:17px; color:#0f172a; }
 .chart { position:relative; height:340px; }
 .two-col { display:grid; grid-template-columns: 1fr 1fr; gap:16px; } @media (max-width: 980px) { .two-col { grid-template-columns:1fr; } }
-.badge { display:inline-block; padding:4px 10px; border-radius:999px; background:#eef2ff; color:var(--blue); font-size:12px; font-weight:600; margin-right:6px; }
-.badge-purple { background:#f3f0ff; color:var(--purple); }
-.badge-green { background:#ecfdf5; color:var(--green); }
-.note { color:var(--muted); font-size:12px; margin-top:8px; }
-.table { width:100%; border-collapse:collapse; font-size:13px; } .table th, .table td { padding:10px 8px; border-bottom:1px solid #eef2f7; text-align:left; } .table th { color:#374151; background:#fafbff; }
+.badge { display:inline-block; padding:4px 10px; border-radius:999px; background:#dbeafe; color:#1d4ed8; font-size:12px; font-weight:700; margin-right:6px; }
+.badge-purple { background:#ede9fe; color:#6d28d9; }
+.badge-green { background:#dcfce7; color:#047857; }
+.note { color:#334155; font-size:12px; margin-top:8px; line-height:1.5; }
+.table { width:100%; border-collapse:separate; border-spacing:0; font-size:13px; overflow:hidden; border-radius:14px; color:#0f172a; } .table th, .table td { padding:11px 10px; border-bottom:1px solid #e2e8f0; text-align:left; } .table th { color:#0f172a; background:linear-gradient(180deg,#f8fbff,#eef4ff); font-weight:800; } .table tbody tr:nth-child(even) td { background:#fbfdff; }
+.table tbody tr:hover td { background:#f1f7ff; }
 </style>
 </head>
 <body>
@@ -31,15 +51,37 @@
   <p>Google Trends + TikTok Video View + TikTok Search + 消耗进度 + 曝光KPI · 数据更新至 7月24日</p>
 </div>
 <div class="container">
+  <div class="hero">
+    <h3>📊 整体战报摘要</h3>
+    <p style="margin:0;opacity:.95;font-size:13px;">当前泰国 POVA 8 声量表现强劲，多项指标超额完成</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-label">🔥 核心亮点</div>
+        <div class="hero-stat-value">产品 SOV 已达到 23.17%</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">✅ 超 KPI 指标</div>
+        <div class="hero-stat-value">TT VV SOV 超额达标 183%</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">⚠️ 需关注</div>
+        <div class="hero-stat-value">Search SOV 目标达成率 12%</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">💰 预算健康度</div>
+        <div class="hero-stat-value">消耗进度 47.13%</div>
+      </div>
+    </div>
+  </div>
   <div class="grid kpis">
-    <div class="card kpi"><div class="label">Google 品牌 SOV（最新）</div><div class="value">6.60%</div><div class="sub">近16日均值 6.34%</div></div>
-    <div class="card kpi"><div class="label">Google 产品 SOV（最新）</div><div class="value">23.17%</div><div class="sub">近16日均值 17.34%</div></div>
-    <div class="card kpi"><div class="label">TikTok VV SOV（最新）</div><div class="value">18.34%</div><div class="sub">近21日均值 9.37%</div></div>
-    <div class="card kpi"><div class="label">TikTok Search SOV（最新）</div><div class="value">1.21%</div><div class="sub">近21日均值 1.09%</div></div>
-    <div class="card kpi" style="border-left:4px solid var(--purple);"><div class="label">消耗进度（最新）</div><div class="value" style="color:var(--purple);">47.13%</div><div class="sub">截至 7月23日 · 日消耗 ¥3,565</div></div>
-    <div class="card kpi" style="border-left:4px solid var(--teal);"><div class="label">曝光完成进度（最新）</div><div class="value" style="color:var(--teal);">70.01%</div><div class="sub">曝光目标 250M · 累计 175.0M</div></div>
-    <div class="card kpi" style="border-left:4px solid #ec4899;"><div class="label">TikTok Buzz 滤镜参与人数</div><div class="value" style="color:#ec4899;">17K</div><div class="sub">KPI 20K · 完成 85%</div></div>
-    <div class="card kpi" style="border-left:4px solid #14b8a6;"><div class="label">广告舆情正面率</div><div class="value" style="color:#14b8a6;">45.3%</div><div class="sub">628 条评论 · 负面率 4.7%</div></div>
+    <div class="card kpi"><div class="label">Google 品牌 SOV <span class="status-dot status-yellow"></span></div><div class="value">6.60% <span class="trend-arrow trend-flat">→</span></div><div class="sub">近16日均值 6.34%</div></div>
+    <div class="card kpi"><div class="label">Google 产品 SOV <span class="status-dot status-green"></span></div><div class="value">23.17% <span class="trend-arrow trend-up">↑</span></div><div class="sub">近16日均值 17.34%</div></div>
+    <div class="card kpi"><div class="label">TikTok VV SOV <span class="status-dot status-green"></span></div><div class="value">18.34% <span class="trend-arrow trend-up">↑</span></div><div class="sub">近21日均值 9.37%</div></div>
+    <div class="card kpi"><div class="label">TikTok Search SOV <span class="status-dot status-yellow"></span></div><div class="value">1.21% <span class="trend-arrow trend-up">↑</span></div><div class="sub">近21日均值 1.09%</div></div>
+    <div class="card kpi" style="border-left:4px solid var(--purple);"><div class="label">消耗进度 <span class="status-dot status-green"></span></div><div class="value" style="color:var(--purple);">47.13% <span class="trend-arrow trend-up">↑</span></div><div class="sub">截至 7月23日 · 日消耗 ¥3,565</div></div>
+    <div class="card kpi" style="border-left:4px solid var(--teal);"><div class="label">曝光完成进度 <span class="status-dot status-green"></span></div><div class="value" style="color:var(--teal);">70.01% <span class="trend-arrow trend-up">↑</span></div><div class="sub">曝光目标 250M · 累计 175.0M</div></div>
+    <div class="card kpi" style="border-left:4px solid #ec4899;"><div class="label">TikTok Buzz 滤镜参与人数 <span class="status-dot status-yellow"></span></div><div class="value" style="color:#ec4899;">17K <span class="trend-arrow trend-up">↑</span></div><div class="sub">KPI 20K · 完成 85%</div></div>
+    <div class="card kpi" style="border-left:4px solid #14b8a6;"><div class="label">广告舆情正面率 <span class="status-dot status-green"></span></div><div class="value" style="color:#14b8a6;">45.3% <span class="trend-arrow trend-flat">→</span></div><div class="sub">628 条评论 · 负面率 4.7%</div></div>
   </div>
 
   <div class="two-col">
@@ -58,8 +100,8 @@
       <h2><span class="badge">Google Trends</span>POVA 8 产品声量走势（近30天）</h2>
       <div class="chart"><canvas id="gtChart"></canvas></div>
       <div class="note">
-        <strong>📊 数据亮点：</strong>
-        7/9 起量（52）→ <strong style="color:var(--orange);">7/15 峰值 100</strong>（与消耗放量同步）→ 7/21 回升至 82 → 7/24 为 40，维持高位震荡。
+        <strong style="color:#0f172a">📊 数据亮点：</strong>
+        7/9 起量（52）→ <strong style="color:#c2410c;">7/15 峰值 100</strong>（与消耗放量同步）→ 7/21 回升至 82 → 7/24 为 40，维持高位震荡。
       </div>
     </div>
 
