@@ -49,7 +49,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 <body>
 <div class="header">
   <h1>🇹🇭 泰国 POVA 8 声量监控看板</h1>
-  <p>Google Trends + TikTok Video View + TikTok Search + 消耗进度 · 数据更新至 7月26日 · 自动更新于 7月27日</p>
+  <p>Google Trends + TikTok Video View + TikTok Search + 消耗进度 + 曝光完成进度 + 爆款视频 · 数据更新至 7月26日 · 自动更新于 7月27日</p>
 </div>
 <div class="container">
   <div class="alert-banner">
@@ -84,6 +84,8 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
     <div class="card kpi"><div class="label">TikTok VV SOV <span class="status-dot status-green"></span></div><div class="value">24.97% <span class="trend-arrow trend-up">↑</span></div><div class="sub">近7日均值 19.51% · 截至 7/24</div></div>
     <div class="card kpi"><div class="label">TikTok Search SOV <span class="status-dot status-red"></span></div><div class="value">1.02% <span class="trend-arrow trend-flat">→</span></div><div class="sub">近7日均值 1.10% · 截至 7/24</div></div>
     <div class="card kpi" style="border-left:4px solid var(--purple);"><div class="label">消耗进度 <span class="status-dot status-green"></span></div><div class="value" style="color:var(--purple);">54.01% <span class="trend-arrow trend-up">↑</span></div><div class="sub">截至 7月26日 · 累计消耗 ¥133,401</div></div>
+    <div class="card kpi" style="border-left:4px solid var(--teal);"><div class="label">曝光完成进度 <span class="status-dot status-green"></span></div><div class="value" style="color:var(--teal);">77.02% <span class="trend-arrow trend-up">↑</span></div><div class="sub">截至 7月24日 · 目标 250M 曝光</div></div>
+    <div class="card kpi" style="border-left:4px solid var(--orange);"><div class="label">3m爆款视频数量 <span class="status-dot status-yellow"></span></div><div class="value" style="color:var(--orange);">24<span style="font-size:16px;color:var(--muted);">/30条</span></div><div class="sub">KPI 完成 80% · 差 6 条达标</div></div>
   </div>
 
   <div class="two-col">
@@ -105,6 +107,12 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
     <div class="note">消耗进度从 7/1 的 0.15% 增长至 7/26 的 54.01%。7/15 单日消耗 ¥43,209 为最大放量日，此后日均消耗约 ¥6,000-8,000。</div>
   </div>
 
+  <div class="section">
+    <h2><span class="badge" style="background:#e0f2fe;color:var(--teal);">曝光</span>曝光完成进度趋势（目标 250M）</h2>
+    <div class="chart"><canvas id="exposureChart"></canvas></div>
+    <div class="note">曝光完成进度从 7/1 的 0.99% 增长至 7/24 的 77.02%。7/15 大放量后进度加速，日均曝光约 1000万-2000万。</div>
+  </div>
+
   <div class="two-col">
     <div class="section">
       <h2><span class="badge" style="background:#fef2f2;color:var(--red);">TikTok</span>Search SOV 趋势</h2>
@@ -121,6 +129,8 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
           <tr><td>TikTok VV SOV</td><td>24.97%</td><td style="color:var(--green);font-weight:600;">10%（250% ✅）</td><td>7月24日</td><td>付费曝光占比，远超 KPI</td></tr>
           <tr><td>TikTok Search SOV</td><td>1.02%</td><td style="color:var(--red);font-weight:600;">10%（10.2% ⚠️）</td><td>7月24日</td><td>搜索曝光占比，远低于目标</td></tr>
           <tr><td style="color:var(--purple);font-weight:600;">消耗进度</td><td style="color:var(--purple);font-weight:700;">54.01%</td><td>—</td><td>7月26日</td><td>累计消耗 ¥133,401</td></tr>
+          <tr><td style="color:var(--teal);font-weight:600;">曝光完成进度</td><td style="color:var(--teal);font-weight:700;">77.02%</td><td>—</td><td>7月24日</td><td>目标 250M 曝光</td></tr>
+          <tr><td style="color:var(--orange);font-weight:600;">3m爆款视频</td><td style="color:var(--orange);font-weight:700;">24 条</td><td style="color:var(--orange);font-weight:600;">30条（80% ⚠️）</td><td>—</td><td>差 6 条达标</td></tr>
         </tbody>
       </table>
       <div class="note">数据源：飞书电子表格 · Token: N3Oasq6Y5hAPhxtpiP4c7Yv8nHg</div>
@@ -142,6 +152,9 @@ function commonLineOptions(yLabel) { return { responsive:true, maintainAspectRat
 new Chart(document.getElementById('googleChart'), { type:'line', data:{ labels:googleLabels, datasets:[{ label:'品牌 SOV（TECNO）', data:googleBrand, borderColor:'#4f46e5', backgroundColor:'rgba(79,70,229,.10)', tension:.35, fill:true, pointRadius:3 },{ label:'产品 SOV（POVA 8）', data:googleProduct, borderColor:'#f97316', backgroundColor:'rgba(249,115,22,.10)', tension:.35, fill:true, pointRadius:3 }]}, options: commonLineOptions('Google SOV') });
 new Chart(document.getElementById('vvChart'), { type:'line', data:{ labels:vvLabels, datasets:[{ label:'TT Video View SOV', data:vvSov, borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.10)', tension:.3, fill:true, pointRadius:3 }]}, options: commonLineOptions('TikTok VV SOV') });
 new Chart(document.getElementById('searchChart'), { type:'line', data:{ labels:searchLabels, datasets:[{ label:'TT Search SOV', data:searchSov, borderColor:'#ef4444', backgroundColor:'rgba(239,68,68,.10)', tension:.3, fill:true, pointRadius:3 }]}, options: commonLineOptions('TikTok Search SOV') });
+const expLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日","7月22日","7月23日","7月24日"];
+const expProgress = [0.99,2.29,3.54,4.85,6.23,7.45,8.15,9.71,12.10,14.07,16.09,19.69,24.53,29.59,37.65,41.57,45.70,51.38,57.14,63.47,70.01,72.45,74.13,77.02];
+new Chart(document.getElementById('exposureChart'), { type:'line', data:{ labels:expLabels, datasets:[{ label:'曝光完成进度（%）', data:expProgress, borderColor:'#0f766e', backgroundColor:'rgba(15,118,110,.10)', tension:.3, fill:true, pointRadius:3 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, max:100, ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'曝光完成进度（%）' } } } } });
 new Chart(document.getElementById('spendChart'), { type:'line', data:{ labels:spendLabels, datasets:[{ label:'消耗进度（%）', data:spendProgress, borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,.12)', tension:.3, fill:true, pointRadius:4, yAxisID:'y' },{ label:'日消耗金额', data:spendAmount, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.08)', tension:.3, fill:false, pointRadius:3, yAxisID:'y1', borderDash:[2,2] }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, position:'left', ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'进度（%）' } }, y1:{ beginAtZero:true, position:'right', ticks:{ callback:(v)=>v.toLocaleString() }, title:{ display:true, text:'日消耗金额' }, grid:{ drawOnChartArea:false } } } } });
 </script>
 </body>
