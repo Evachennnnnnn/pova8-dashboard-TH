@@ -91,38 +91,90 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 
   <div class="section">
     <h2><span class="badge" style="background:#fef3c7;color:#92400e;">🏆</span>曝光核心贡献榜 TOP 5（截至 7/27）</h2>
-    <div class="leaderboard">
-      <div class="leaderboard-card gold">
-        <div class="leaderboard-rank">🥇</div>
-        <div class="leaderboard-name">[TVC] Viral | Message</div>
-        <div class="leaderboard-value">16.2M</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cost ¥19,803</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px;">
+      <!-- Top 1 -->
+      <div style="background:linear-gradient(135deg,rgba(251,191,36,.12),rgba(245,158,11,.08));border:2px solid rgba(251,191,36,.4);border-radius:16px;padding:18px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-8px;right:-8px;font-size:48px;opacity:.15;">🏆</div>
+        <div style="font-size:14px;font-weight:800;color:#92400e;margin-bottom:8px;">🥇 TOP 1</div>
+        <div style="font-size:13px;font-weight:700;color:#0f172a;margin-bottom:12px;line-height:1.4;min-height:36px;">[TVC] Viral | Message</div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div>
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">曝光量</div>
+            <div style="font-size:24px;font-weight:900;color:#059669;">16.2M</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">Cost</div>
+            <div style="font-size:14px;font-weight:700;color:#7c3aed;">¥19,803</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(251,191,36,.3);font-size:11px;color:#475569;">CPM: ¥1,222</div>
       </div>
-      <div class="leaderboard-card">
-        <div class="leaderboard-rank">🥈</div>
-        <div class="leaderboard-name">[TVC] Viral | Grab</div>
-        <div class="leaderboard-value">15.0M</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cost ¥19,075</div>
+      <!-- Top 2 -->
+      <div style="background:linear-gradient(135deg,rgba(148,163,184,.08),rgba(203,213,225,.06));border:1px solid rgba(148,163,184,.25);border-radius:16px;padding:18px;position:relative;">
+        <div style="font-size:14px;font-weight:800;color:#475569;margin-bottom:8px;">🥈 TOP 2</div>
+        <div style="font-size:13px;font-weight:700;color:#0f172a;margin-bottom:12px;line-height:1.4;min-height:36px;">[TVC] Viral | Grab</div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div>
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">曝光量</div>
+            <div style="font-size:24px;font-weight:900;color:#059669;">15.0M</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">Cost</div>
+            <div style="font-size:14px;font-weight:700;color:#7c3aed;">¥19,075</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(148,163,184,.2);font-size:11px;color:#475569;">CPM: ¥1,273</div>
       </div>
-      <div class="leaderboard-card">
-        <div class="leaderboard-rank">🥉</div>
-        <div class="leaderboard-name">[TVC] Viral | Pingli</div>
-        <div class="leaderboard-value">14.6M</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cost ¥20,163</div>
+      <!-- Top 3 -->
+      <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(251,146,60,.04));border:1px solid rgba(251,146,60,.25);border-radius:16px;padding:18px;position:relative;">
+        <div style="font-size:14px;font-weight:800;color:#9a3412;margin-bottom:8px;">🥉 TOP 3</div>
+        <div style="font-size:13px;font-weight:700;color:#0f172a;margin-bottom:12px;line-height:1.4;min-height:36px;">[TVC] Viral | Pingli</div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div>
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">曝光量</div>
+            <div style="font-size:24px;font-weight:900;color:#059669;">14.6M</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">Cost</div>
+            <div style="font-size:14px;font-weight:700;color:#7c3aed;">¥20,163</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(251,146,60,.2);font-size:11px;color:#475569;">CPM: ¥1,382</div>
       </div>
-      <div class="leaderboard-card">
-        <div class="leaderboard-rank">🏅</div>
-        <div class="leaderboard-name">[TVC] Viral | Uno</div>
-        <div class="leaderboard-value">11.6M</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cost ¥16,854</div>
+      <!-- Top 4 -->
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px;">
+        <div style="font-size:14px;font-weight:800;color:#64748b;margin-bottom:8px;">🏅 TOP 4</div>
+        <div style="font-size:13px;font-weight:700;color:#0f172a;margin-bottom:12px;line-height:1.4;min-height:36px;">[TVC] Viral | Uno</div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div>
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">曝光量</div>
+            <div style="font-size:24px;font-weight:900;color:#059669;">11.6M</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">Cost</div>
+            <div style="font-size:14px;font-weight:700;color:#7c3aed;">¥16,854</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid #e2e8f0;font-size:11px;color:#475569;">CPM: ¥1,451</div>
       </div>
-      <div class="leaderboard-card">
-        <div class="leaderboard-rank">🏅</div>
-        <div class="leaderboard-name">matrix dot USP 1</div>
-        <div class="leaderboard-value">9.4M</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cost ¥3,065</div>
+      <!-- Top 5 -->
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px;">
+        <div style="font-size:14px;font-weight:800;color:#64748b;margin-bottom:8px;">🏅 TOP 5</div>
+        <div style="font-size:13px;font-weight:700;color:#0f172a;margin-bottom:12px;line-height:1.4;min-height:36px;">matrix dot USP 1</div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div>
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">曝光量</div>
+            <div style="font-size:24px;font-weight:900;color:#059669;">9.4M</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px;color:#475569;margin-bottom:2px;">Cost</div>
+            <div style="font-size:14px;font-weight:700;color:#7c3aed;">¥3,065</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid #e2e8f0;font-size:11px;color:#475569;">CPM: ¥326</div>
       </div>
     </div>
+    <div style="margin-top:12px;font-size:11px;color:#64748b;">💡 CPM = Cost / Impressions × 1000，数值越低效率越高</div>
   </div>
 
   <div class="two-col">
