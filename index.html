@@ -86,7 +86,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
     <div class="card kpi" style="border-left:4px solid var(--purple);"><div class="label">消耗进度 <span class="status-dot status-green"></span></div><div class="value" style="color:var(--purple);">56.01% <span class="trend-arrow trend-up">↑</span></div><div class="sub">截至 7月27日 · 累计消耗 ¥138,344</div></div>
     <div class="card kpi" style="border-left:4px solid var(--teal);"><div class="label">曝光完成进度 <span class="status-dot status-green"></span></div><div class="value" style="color:var(--teal);">77.02% <span class="trend-arrow trend-up">↑</span></div><div class="sub">截至 7月24日 · 目标 250M 曝光</div></div>
     <div class="card kpi" style="border-left:4px solid var(--orange);"><div class="label">3m爆款视频数量 <span class="status-dot status-yellow"></span></div><div class="value" style="color:var(--orange);">24<span style="font-size:16px;color:var(--muted);">/30条</span></div><div class="sub">KPI 完成 80% · 差 6 条达标</div></div>
-    <div class="card kpi" style="border-left:4px solid #ec4899;"><div class="label">付费评论互动 <span class="status-dot status-green"></span></div><div class="value" style="color:#ec4899;">884<span style="font-size:16px;color:var(--muted);">条</span></div><div class="sub">正面率 90.6% · 总互动 2,070（点赞1,904+回复166）· 7/1-7/27</div></div>
+    <div class="card kpi" style="border-left:4px solid #14b8a6;"><div class="label">广告舆情正面率 <span class="status-dot status-green"></span></div><div class="value" style="color:#14b8a6;">25.0%</div><div class="sub">884 条评论 · 负面率 2.6% · 总互动 2,070</div></div>
   </div>
 
   <div class="section">
@@ -195,6 +195,33 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
     <div class="chart"><canvas id="spendExposureChart"></canvas></div>
     <div class="note">消耗进度从 7/1 的 0.15% 增长至 7/27 的 56.01%，累计消耗 ¥138,344。曝光完成进度从 0.99% 增长至 77.02%（目标 250M）。7/15 单日消耗 ¥43,209 为最大放量日。</div>
   </div>
+
+  <div class="section">
+    <h2><span class="badge" style="background:#f0fdfa;color:#14b8a6;">💬</span>广告舆情健康度（7/1-7/27）</h2>
+    <div class="two-col" style="gap:12px;margin-bottom:12px;">
+      <div style="text-align:center;padding:12px;background:#f0fdfa;border-radius:12px;">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">正面评论</div>
+        <div style="font-size:24px;font-weight:800;color:#10b981;">221 条</div>
+        <div style="font-size:11px;color:var(--muted);">25.0%</div>
+      </div>
+      <div style="text-align:center;padding:12px;background:#fef2f2;border-radius:12px;">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">负面评论</div>
+        <div style="font-size:24px;font-weight:800;color:#ef4444;">23 条</div>
+        <div style="font-size:11px;color:var(--muted);">2.6%</div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">🔥 热门评论 TOP 3</div>
+    <div style="background:#fafbff;border-radius:8px;padding:10px;font-size:12px;margin-bottom:8px;">
+      <div style="margin-bottom:6px;"><span style="color:#f59e0b;font-weight:600;">👍367 💬4</span> เล่นกล้ามที่ไหนครับ ล่ำดีจัง</div>
+      <div style="margin-bottom:6px;"><span style="color:#f59e0b;font-weight:600;">👍282 💬2</span> เริ่ด !!!</div>
+      <div><span style="color:#f59e0b;font-weight:600;">👍235 💬3</span> ไม่ใช้หรอกกลัวเป็นเหมือนคนในคลิป55</div>
+    </div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">⚠️ 负面舆情主题</div>
+    <div style="background:#fef2f2;border-radius:8px;padding:10px;font-size:11px;color:#991b1b;">
+      主要负面评论集中在"产品质量质疑"、"使用体验不佳"，但负面率仅 2.6%，整体舆情健康可控。
+    </div>
+  </div>
+
     <div class="section">
       <h2><span class="badge">一页总览</span>最新关键数据</h2>
       <table class="table">
@@ -207,6 +234,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
           <tr><td style="color:var(--purple);font-weight:600;">消耗进度</td><td style="color:var(--purple);font-weight:700;">56.01%</td><td>—</td><td>7月27日</td><td>累计消耗 ¥138,344</td></tr>
           <tr><td style="color:var(--teal);font-weight:600;">曝光完成进度</td><td style="color:var(--teal);font-weight:700;">77.02%</td><td>—</td><td>7月24日</td><td>目标 250M 曝光</td></tr>
           <tr><td style="color:var(--orange);font-weight:600;">3m爆款视频</td><td style="color:var(--orange);font-weight:700;">24 条</td><td style="color:var(--orange);font-weight:600;">30条（80% ⚠️）</td><td>—</td><td>差 6 条达标</td></tr>
+          <tr><td style="color:#14b8a6;font-weight:600;">广告舆情正面率</td><td style="color:#14b8a6;font-weight:700;">25.0%</td><td>—</td><td>7月27日</td><td>884 条评论，负面率 2.6%，总互动 2,070</td></tr>
         </tbody>
       </table>
       <div class="note">数据源：飞书电子表格 · Token: N3Oasq6Y5hAPhxtpiP4c7Yv8nHg</div>
