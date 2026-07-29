@@ -96,31 +96,19 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
       <div class="note">品牌 SOV 近期稳定在 7% 左右；产品 SOV 维持在 25%-27% 区间，最新 25.97%。</div>
     </div>
     <div class="section">
-      <h2><span class="badge badge-green">TikTok</span>Video View SOV 趋势</h2>
-      <div class="chart"><canvas id="vvChart"></canvas></div>
-      <div class="note">VV SOV 从 7/1 的 2.77% 持续抬升，7/24 达到 24.97%，7/25-26 回落至 13% 左右，但仍显著高于 10% 目标线。</div>
+      <h2><span class="badge badge-green">TikTok</span>Video View & Search SOV 趋势</h2>
+      <div class="chart"><canvas id="ttSovChart"></canvas></div>
+      <div class="note">VV SOV（左轴）从 7/1 的 2.77% 升至 7/24 峰值 24.97%，最新 13.19%；Search SOV（右轴）在 0.85%-2.32% 区间，最新 1.01%。</div>
     </div>
   </div>
 
   <div class="section">
-    <h2><span class="badge badge-purple">消耗进度</span>消耗金额 & 消耗进度趋势</h2>
-    <div class="chart"><canvas id="spendChart"></canvas></div>
-    <div class="note">消耗进度从 7/1 的 0.15% 增长至 7/28 的 57.99%。7/15 单日消耗 ¥43,209 为最大放量日，之后日消耗保持在约 ¥3,000-8,000 区间。</div>
+    <h2><span class="badge badge-purple">投放进度</span>消耗金额 & 消耗进度 & 曝光完成进度</h2>
+    <div class="chart"><canvas id="progressChart"></canvas></div>
+    <div class="note">消耗进度（左轴）至 7/28 达 57.99%，曝光完成进度（左轴）至 7/26 达 84.88%，日消耗金额（右轴）7/15 单日 ¥43,209 为最大放量日。</div>
   </div>
 
   <div class="section">
-    <h2><span class="badge" style="background:#e0f2fe;color:var(--teal);">曝光</span>曝光完成进度趋势（目标 250M）</h2>
-    <div class="chart"><canvas id="exposureChart"></canvas></div>
-    <div class="note">曝光完成进度从 7/1 的 0.99% 增长至 7/26 的 84.88%。7/15 后进度加速，当前距离 100% 仍需继续放量。</div>
-  </div>
-
-  <div class="two-col">
-    <div class="section">
-      <h2><span class="badge" style="background:#fef2f2;color:var(--red);">TikTok</span>Search SOV 趋势</h2>
-      <div class="chart"><canvas id="searchChart"></canvas></div>
-      <div class="note">Search SOV 整体在 0.85%-2.32% 区间波动，7/15 达峰后回落至 1.0% 左右，距 10% 目标仍有明显差距。</div>
-    </div>
-    <div class="section">
       <h2><span class="badge">一页总览</span>最新关键数据</h2>
       <table class="table">
         <thead><tr><th>模块</th><th>最新值</th><th>KPI（完成进度%）</th><th>日期</th><th>说明</th></tr></thead>
@@ -151,12 +139,9 @@ const spendProgress = [0.15,0.47,0.91,1.36,1.80,2.25,2.62,3.10,3.94,4.68,5.35,6.
 const spendAmount = [377.84,787.93,1094.01,1101.95,1092.26,1100.60,905.72,1199.99,2071.13,1828.13,1665.45,2631.65,4555.12,3666.62,43209.13,5443.81,5857.89,7863,7573.2,8118.64,7716.42,2987.24,3564.66,5378.06,5753.76,5857.15,4942.99,4891.9];
 function commonLineOptions(yLabel) { return { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:yLabel } } } }; }
 new Chart(document.getElementById('googleChart'), { type:'line', data:{ labels:googleLabels, datasets:[{ label:'品牌 SOV（TECNO）', data:googleBrand, borderColor:'#4f46e5', backgroundColor:'rgba(79,70,229,.10)', tension:.35, fill:true, pointRadius:3 },{ label:'产品 SOV（POVA 8）', data:googleProduct, borderColor:'#f97316', backgroundColor:'rgba(249,115,22,.10)', tension:.35, fill:true, pointRadius:3 }]}, options: commonLineOptions('Google SOV') });
-new Chart(document.getElementById('vvChart'), { type:'line', data:{ labels:vvLabels, datasets:[{ label:'TT Video View SOV', data:vvSov, borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.10)', tension:.3, fill:true, pointRadius:3 }]}, options: commonLineOptions('TikTok VV SOV') });
-new Chart(document.getElementById('searchChart'), { type:'line', data:{ labels:searchLabels, datasets:[{ label:'TT Search SOV', data:searchSov, borderColor:'#ef4444', backgroundColor:'rgba(239,68,68,.10)', tension:.3, fill:true, pointRadius:3 }]}, options: commonLineOptions('TikTok Search SOV') });
-const expLabels = ["7月1日","7月2日","7月3日","7月4日","7月5日","7月6日","7月7日","7月8日","7月9日","7月10日","7月11日","7月12日","7月13日","7月14日","7月15日","7月16日","7月17日","7月18日","7月19日","7月20日","7月21日","7月22日","7月23日","7月24日","7月25日","7月26日"];
+new Chart(document.getElementById('ttSovChart'), { type:'line', data:{ labels:vvLabels, datasets:[{ label:'TT Video View SOV', data:vvSov, borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.10)', tension:.3, fill:true, pointRadius:3, yAxisID:'y' },{ label:'TT Search SOV', data:searchSov, borderColor:'#ef4444', backgroundColor:'rgba(239,68,68,.10)', tension:.3, fill:false, pointRadius:3, yAxisID:'y1', borderDash:[4,3] }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, position:'left', ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'VV SOV（%）' } }, y1:{ beginAtZero:true, position:'right', ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'Search SOV（%）' }, grid:{ drawOnChartArea:false } } } } });
 const expProgress = [0.99,2.29,3.54,4.85,6.23,7.45,8.15,9.71,12.10,14.07,16.09,19.69,24.53,29.59,37.65,41.57,45.70,51.38,57.14,63.47,70.01,72.45,74.13,77.02,81.00,84.88];
-new Chart(document.getElementById('exposureChart'), { type:'line', data:{ labels:expLabels, datasets:[{ label:'曝光完成进度（%）', data:expProgress, borderColor:'#0f766e', backgroundColor:'rgba(15,118,110,.10)', tension:.3, fill:true, pointRadius:3 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, max:100, ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'曝光完成进度（%）' } } } } });
-new Chart(document.getElementById('spendChart'), { type:'line', data:{ labels:spendLabels, datasets:[{ label:'消耗进度（%）', data:spendProgress, borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,.12)', tension:.3, fill:true, pointRadius:4, yAxisID:'y' },{ label:'日消耗金额', data:spendAmount, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.08)', tension:.3, fill:false, pointRadius:3, yAxisID:'y1', borderDash:[2,2] }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, position:'left', ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'进度（%）' } }, y1:{ beginAtZero:true, position:'right', ticks:{ callback:(v)=>v.toLocaleString() }, title:{ display:true, text:'日消耗金额' }, grid:{ drawOnChartArea:false } } } } });
+new Chart(document.getElementById('progressChart'), { type:'line', data:{ labels:spendLabels, datasets:[{ label:'消耗进度（%）', data:spendProgress, borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,.12)', tension:.3, fill:true, pointRadius:4, yAxisID:'y' },{ label:'曝光完成进度（%）', data:expProgress, borderColor:'#0f766e', backgroundColor:'rgba(15,118,110,.10)', tension:.3, fill:true, pointRadius:3, yAxisID:'y' },{ label:'日消耗金额', data:spendAmount, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.08)', tension:.3, fill:false, pointRadius:3, yAxisID:'y1', borderDash:[2,2] }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, max:100, position:'left', ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'进度（%）' } }, y1:{ beginAtZero:true, position:'right', ticks:{ callback:(v)=>v.toLocaleString() }, title:{ display:true, text:'日消耗金额' }, grid:{ drawOnChartArea:false } } } } });
 </script>
 </body>
 </html>
