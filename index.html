@@ -158,8 +158,10 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
     </div>
     <div class="section">
       <h2><span class="badge badge-purple">TikTok</span>人群资产分层趋势 · A / C / C</h2>
-      <div class="chart"><canvas id="accLayerChart"></canvas></div>
-      <div class="note">Awareness（左轴）从 867万（7/1）增长至峰值 2,331万（7/29），最新 2,099万；Consideration（左轴）从 48万增至峰值 146万（7/27），最新 114万；Conversion（右轴）从 2,222人稳步增长至 2,447人（8/2），持续正向增长。</div>
+      <div class="two-col" style="gap:12px;">
+        <div><div class="chart" style="height:280px;"><canvas id="accAwChart"></canvas></div><div class="note" style="text-align:center;">Awareness 总量（万）· 峰值 2,331万(7/29)</div></div>
+        <div><div class="chart" style="height:280px;"><canvas id="accCsCvChart"></canvas></div><div class="note" style="text-align:center;">Consideration（万）+ Conversion（人）</div></div>
+      </div>
     </div>
   </div>
 
@@ -325,12 +327,14 @@ const accBrand = [915.3,956.2,948.8,950.8,992.0,1018.4,1071.2,1590.0,1846.9,2073
 const accIndustry = [2543.6,2551.3,2589.8,2637.3,2665.6,2640.9,2602.7,2673.1,2712.4,2736.9,2698.5,2635.9,2673.4,2708.0,2745.3,2736.7,2762.2];
 new Chart(document.getElementById('accChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'TECNO ACC 总量（万）', data:accBrand, borderColor:'#06b6d4', backgroundColor:'rgba(6,182,212,.12)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5 },{ label:'行业前5名均值（万）', data:accIndustry, borderColor:'#94a3b8', backgroundColor:'rgba(148,163,184,.08)', tension:.35, fill:false, pointRadius:2, borderDash:[5,3], borderWidth:2 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' }, tooltip:{ callbacks:{ label:(ctx)=>ctx.dataset.label+': '+ctx.parsed.y+'万' } } }, scales:{ y:{ beginAtZero:false, min:800, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'ACC 人群资产（万）' } } } } });
 
-// ACC 分层趋势图 (Awareness / Consideration / Conversion)
+// ACC 分层趋势图 - 拆分为两张
 const accLayerAw = [866.7,906.5,905.9,910.6,948.7,972.6,1024.2,1507.1,1757.6,1969.0,2119.1,2155.2,2229.9,2299.9,2330.8,2168.4,2099.2];
 const accLayerCs = [48.3,49.5,42.7,39.9,43.0,45.5,46.7,82.6,89.1,104.3,117.5,125.0,135.9,145.9,143.8,118.3,114.3];
-const accLayerCv = [2222,2216,2215,2218,2213,2220,2226,2220,2218,2214,2201,2198,2200,2197,2239,2277,2296,2324,2327,2334,2356,2363,2368,2381,2398,2405,2410,2421,2423,2434,2431,2428,2447];
 const accLayerCvSampled = [2222,2215,2213,2226,2218,2201,2200,2239,2296,2327,2356,2368,2398,2410,2423,2431,2447];
-new Chart(document.getElementById('accLayerChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'Awareness（万）', data:accLayerAw, borderColor:'#0ea5e9', backgroundColor:'rgba(14,165,233,.10)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5, yAxisID:'y' },{ label:'Consideration（万）', data:accLayerCs, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.10)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5, yAxisID:'y' },{ label:'Conversion（人）', data:accLayerCvSampled, borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.08)', tension:.3, fill:false, pointRadius:3, borderWidth:2, borderDash:[4,3], yAxisID:'y1' }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, position:'left', ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'Awareness / Consideration（万）' } }, y1:{ beginAtZero:false, min:2100, max:2500, position:'right', ticks:{ callback:(v)=>v.toLocaleString()+'人' }, title:{ display:true, text:'Conversion（人）' }, grid:{ drawOnChartArea:false } } } } });
+// 左图: Awareness
+new Chart(document.getElementById('accAwChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'Awareness（万）', data:accLayerAw, borderColor:'#0ea5e9', backgroundColor:'rgba(14,165,233,.15)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales:{ y:{ beginAtZero:false, min:800, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'Awareness（万）' } } } } });
+// 右图: Consideration + Conversion
+new Chart(document.getElementById('accCsCvChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'Consideration（万）', data:accLayerCs, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.15)', tension:.35, fill:true, pointRadius:4, borderWidth:2.5, yAxisID:'y' },{ label:'Conversion（人）', data:accLayerCvSampled, borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.08)', tension:.3, fill:false, pointRadius:3, borderWidth:2, borderDash:[4,3], yAxisID:'y1' }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, position:'left', ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'Consideration（万）' } }, y1:{ beginAtZero:false, min:2100, max:2500, position:'right', ticks:{ callback:(v)=>v.toLocaleString()+'人' }, title:{ display:true, text:'Conversion（人）' }, grid:{ drawOnChartArea:false } } } } });
 </script>
 </body>
 </html>
