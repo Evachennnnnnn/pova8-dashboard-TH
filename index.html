@@ -156,7 +156,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
   <div class="section">
     <h2><span class="badge badge-green">TikTok</span>人群资产(ACC)趋势 · 品牌 vs 行业均值</h2>
     <div class="chart"><canvas id="accChart"></canvas></div>
-    <div class="note">ACC 人群资产从 5/2 的 956万 经历波动后，7月中旬爆发式增长至峰值 2,475万（7/29），最新 2,214万（8/2）。行业前5名均值稳定在 2,300~2,760万区间。7/15 单日新增 391万 为最大增长日。</div>
+    <div class="note">7月期间 ACC 人群资产从 915万（7/1）爆发式增长至峰值 2,475万（7/29），最新 2,214万（8/2）。行业前5名均值稳定在 2,540~2,760万区间。7/15 单日新增 391万 为最大增长日。</div>
   </div>
 
   <div class="section">
@@ -205,15 +205,15 @@ new Chart(document.getElementById('ttSovChart'), { type:'line', data:{ labels:vv
 const expProgress = [0.99,2.29,3.54,4.85,6.23,7.45,8.15,9.71,12.10,14.07,16.09,19.69,24.53,29.59,37.65,41.57,45.70,51.38,57.14,63.47,70.01,73.44,76.42,80.56,85.85,91.11,95.22,99.33];
 new Chart(document.getElementById('progressChart'), { type:'line', data:{ labels:spendLabels, datasets:[{ label:'消耗进度（%）', data:spendProgress, borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,.12)', tension:.3, fill:true, pointRadius:4, yAxisID:'y' },{ label:'曝光完成进度（%）', data:expProgress, borderColor:'#0f766e', backgroundColor:'rgba(15,118,110,.10)', tension:.3, fill:true, pointRadius:3, yAxisID:'y' },{ label:'日消耗金额', data:spendAmount, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.08)', tension:.3, fill:false, pointRadius:3, yAxisID:'y1', borderDash:[2,2] }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, max:100, position:'left', ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'进度（%）' } }, y1:{ beginAtZero:true, position:'right', ticks:{ callback:(v)=>v.toLocaleString() }, title:{ display:true, text:'日消耗金额' }, grid:{ drawOnChartArea:false } } } } });
 
-// ACC 人群资产趋势图
-const accLabels = ["5/2","5/4","5/6","5/8","5/10","5/12","5/14","5/16","5/18","5/20","5/22","5/24","5/26","5/28","5/30","6/1","6/3","6/5","6/7","6/9","6/11","6/13","6/15","6/17","6/19","6/21","6/23","6/25","6/27","6/29","7/1","7/3","7/5","7/7","7/9","7/11","7/13","7/15","7/17","7/19","7/21","7/23","7/25","7/27","7/29","7/31","8/2"];
-const accBrand = [956.3,907.5,1013.0,1051.3,1076.2,1097.8,924.7,825.5,808.2,665.0,634.6,603.5,564.4,550.9,533.2,565.1,782.2,1094.1,1129.0,1149.0,1165.5,1163.6,1277.2,1338.4,1235.5,1091.8,1103.2,1123.6,1131.4,1151.9,915.3,956.2,948.8,950.8,992.0,1018.4,1071.2,1590.0,1846.9,2073.5,2236.9,2280.4,2366.0,2446.1,2474.8,2287.0,2213.8];
-const accIndustry = [2380.9,2432.5,2519.6,2525.2,2498.9,2494.7,2436.4,2433.2,2421.1,2317.7,2266.6,2296.3,2316.2,2355.9,2390.2,2396.6,2506.7,2643.4,2727.0,2720.8,2714.2,2704.6,2733.0,2729.9,2659.9,2506.4,2487.8,2531.4,2567.0,2587.2,2543.6,2551.3,2589.8,2637.3,2665.6,2640.9,2602.7,2673.1,2712.4,2736.9,2698.5,2635.9,2673.4,2708.0,2745.3,2736.7,2762.2];
-new Chart(document.getElementById('accChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'TECNO ACC 总量（万）', data:accBrand, borderColor:'#06b6d4', backgroundColor:'rgba(6,182,212,.12)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5 },{ label:'行业前5名均值（万）', data:accIndustry, borderColor:'#94a3b8', backgroundColor:'rgba(148,163,184,.08)', tension:.35, fill:false, pointRadius:2, borderDash:[5,3], borderWidth:2 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' }, tooltip:{ callbacks:{ label:(ctx)=>ctx.dataset.label+': '+ctx.parsed.y+'万' } } }, scales:{ y:{ beginAtZero:false, min:400, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'ACC 人群资产（万）' } } } } });
+// ACC 人群资产趋势图 (7/1~8/2)
+const accLabels = ["7月1日","7月3日","7月5日","7月7日","7月9日","7月11日","7月13日","7月15日","7月17日","7月19日","7月21日","7月23日","7月25日","7月27日","7月29日","7月31日","8月2日"];
+const accBrand = [915.3,956.2,948.8,950.8,992.0,1018.4,1071.2,1590.0,1846.9,2073.5,2236.9,2280.4,2366.0,2446.1,2474.8,2287.0,2213.8];
+const accIndustry = [2543.6,2551.3,2589.8,2637.3,2665.6,2640.9,2602.7,2673.1,2712.4,2736.9,2698.5,2635.9,2673.4,2708.0,2745.3,2736.7,2762.2];
+new Chart(document.getElementById('accChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'TECNO ACC 总量（万）', data:accBrand, borderColor:'#06b6d4', backgroundColor:'rgba(6,182,212,.12)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5 },{ label:'行业前5名均值（万）', data:accIndustry, borderColor:'#94a3b8', backgroundColor:'rgba(148,163,184,.08)', tension:.35, fill:false, pointRadius:2, borderDash:[5,3], borderWidth:2 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' }, tooltip:{ callbacks:{ label:(ctx)=>ctx.dataset.label+': '+ctx.parsed.y+'万' } } }, scales:{ y:{ beginAtZero:false, min:800, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'ACC 人群资产（万）' } } } } });
 
-// ACC 新增/流失柱状图
-const accAdd = [24.7,22.1,26.2,28.6,25.5,23.5,19.3,17.0,17.6,12.7,20.4,17.7,24.8,43.8,29.5,60.5,202.3,246.7,33.3,19.3,21.5,25.4,125.8,18.4,40.1,56.2,35.8,28.7,24.3,29.7,57.6,37.8,48.8,39.4,61.5,34.4,55.6,391.4,134.7,120.2,92.0,36.7,70.3,46.6,50.6,44.6,30.7];
-const accLoss = [41.6,47.7,12.3,10.6,10.7,11.7,190.0,39.9,26.6,147.8,36.4,31.4,40.5,37.9,40.0,28.6,17.1,14.7,11.6,10.8,13.6,21.2,17.1,36.5,55.2,29.8,25.1,21.8,17.5,23.1,177.2,26.1,46.4,32.5,36.4,20.6,47.0,19.7,19.4,15.3,18.5,18.1,16.5,21.1,48.2,72.0,76.0];
+// ACC 新增/流失柱状图 (7/1~8/2)
+const accAdd = [57.6,37.8,48.8,39.4,61.5,34.4,55.6,391.4,134.7,120.2,92.0,36.7,70.3,46.6,50.6,44.6,30.7];
+const accLoss = [177.2,26.1,46.4,32.5,36.4,20.6,47.0,19.7,19.4,15.3,18.5,18.1,16.5,21.1,48.2,72.0,76.0];
 new Chart(document.getElementById('accFlowChart'), { type:'bar', data:{ labels:accLabels, datasets:[{ label:'每日新增 ACC（万）', data:accAdd, backgroundColor:'rgba(16,185,129,.7)', borderColor:'#10b981', borderWidth:1, borderRadius:3 },{ label:'每日流失 ACC（万）', data:accLoss, backgroundColor:'rgba(239,68,68,.6)', borderColor:'#ef4444', borderWidth:1, borderRadius:3 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' }, tooltip:{ callbacks:{ label:(ctx)=>ctx.dataset.label+': '+ctx.parsed.y+'万' } } }, scales:{ y:{ beginAtZero:true, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'ACC 变动（万）' } } } } });
 </script>
 </body>
