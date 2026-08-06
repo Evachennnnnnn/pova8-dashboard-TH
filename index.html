@@ -101,6 +101,9 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
     <div class="card kpi" style="border-left:4px solid var(--orange);"><div class="label">3m爆款视频数量 <span class="status-dot status-green"></span></div><div class="value" style="color:var(--orange);">30<span style="font-size:16px;color:var(--muted);">/30条</span></div><div class="sub">KPI 完成 100% ✅ · 已达标</div></div>
     <div class="card kpi" style="border-left:4px solid #ec4899;"><div class="label">付费评论互动 <span class="status-dot status-green"></span></div><div class="value" style="color:#ec4899;">1,162<span style="font-size:16px;color:var(--muted);">条</span></div><div class="sub">总互动 2,737（点赞2,497+回复240）· 7/1-8/3</div></div>
     <div class="card kpi" style="border-left:4px solid #06b6d4;"><div class="label">TikTok 人群资产(ACC) <span class="status-dot status-yellow"></span></div><div class="value" style="color:#06b6d4;">2,214<span style="font-size:16px;color:var(--muted);">万</span></div><div class="sub">行业均值 2,762万 · 峰值 2,475万(7/29) · 截至 8/2</div></div>
+    <div class="card kpi" style="border-left:4px solid #0ea5e9;"><div class="label">Awareness 总量 <span class="status-dot status-yellow"></span></div><div class="value" style="color:#0ea5e9;">2,099<span style="font-size:16px;color:var(--muted);">万</span></div><div class="sub">峰值 2,331万(7/29) · 截至 8/2</div></div>
+    <div class="card kpi" style="border-left:4px solid #f59e0b;"><div class="label">Consideration 总量 <span class="status-dot status-yellow"></span></div><div class="value" style="color:#f59e0b;">114<span style="font-size:16px;color:var(--muted);">万</span></div><div class="sub">峰值 146万(7/27) · 截至 8/2</div></div>
+    <div class="card kpi" style="border-left:4px solid #10b981;"><div class="label">Conversion 总量 <span class="status-dot status-green"></span></div><div class="value" style="color:#10b981;">2,447<span style="font-size:16px;color:var(--muted);">人</span></div><div class="sub">持续增长 · 截至 8/2</div></div>
   </div>
 
   <div class="section">
@@ -160,6 +163,12 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
   </div>
 
   <div class="section">
+    <h2><span class="badge badge-purple">TikTok</span>人群资产分层趋势 · Awareness / Consideration / Conversion</h2>
+    <div class="chart"><canvas id="accLayerChart"></canvas></div>
+    <div class="note">Awareness（左轴）从 867万（7/1）增长至峰值 2,331万（7/29），最新 2,099万；Consideration（左轴）从 48万增至峰值 146万（7/27），最新 114万；Conversion（右轴）从 2,222人稳步增长至 2,447人（8/2），持续正向增长。</div>
+  </div>
+
+  <div class="section">
     <h2><span class="badge badge-purple">TikTok</span>人群资产每日新增 & 流失</h2>
     <div class="chart"><canvas id="accFlowChart"></canvas></div>
     <div class="note">新增（柱状）与流失（柱状）对比。7/15 新增 391万 为峰值；周期性流失日（5/14、5/20、6/18、6/20、6/30、7/30）单日流失超 100万，疑似平台数据清洗或人群过期。</div>
@@ -215,6 +224,13 @@ new Chart(document.getElementById('accChart'), { type:'line', data:{ labels:accL
 const accAdd = [57.6,37.8,48.8,39.4,61.5,34.4,55.6,391.4,134.7,120.2,92.0,36.7,70.3,46.6,50.6,44.6,30.7];
 const accLoss = [177.2,26.1,46.4,32.5,36.4,20.6,47.0,19.7,19.4,15.3,18.5,18.1,16.5,21.1,48.2,72.0,76.0];
 new Chart(document.getElementById('accFlowChart'), { type:'bar', data:{ labels:accLabels, datasets:[{ label:'每日新增 ACC（万）', data:accAdd, backgroundColor:'rgba(16,185,129,.7)', borderColor:'#10b981', borderWidth:1, borderRadius:3 },{ label:'每日流失 ACC（万）', data:accLoss, backgroundColor:'rgba(239,68,68,.6)', borderColor:'#ef4444', borderWidth:1, borderRadius:3 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' }, tooltip:{ callbacks:{ label:(ctx)=>ctx.dataset.label+': '+ctx.parsed.y+'万' } } }, scales:{ y:{ beginAtZero:true, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'ACC 变动（万）' } } } } });
+
+// ACC 分层趋势图 (Awareness / Consideration / Conversion)
+const accLayerAw = [866.7,906.5,905.9,910.6,948.7,972.6,1024.2,1507.1,1757.6,1969.0,2119.1,2155.2,2229.9,2299.9,2330.8,2168.4,2099.2];
+const accLayerCs = [48.3,49.5,42.7,39.9,43.0,45.5,46.7,82.6,89.1,104.3,117.5,125.0,135.9,145.9,143.8,118.3,114.3];
+const accLayerCv = [2222,2216,2215,2218,2213,2220,2226,2220,2218,2214,2201,2198,2200,2197,2239,2277,2296,2324,2327,2334,2356,2363,2368,2381,2398,2405,2410,2421,2423,2434,2431,2428,2447];
+const accLayerCvSampled = [2222,2215,2213,2226,2218,2201,2200,2239,2296,2327,2356,2368,2398,2410,2423,2431,2447];
+new Chart(document.getElementById('accLayerChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'Awareness（万）', data:accLayerAw, borderColor:'#0ea5e9', backgroundColor:'rgba(14,165,233,.10)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5, yAxisID:'y' },{ label:'Consideration（万）', data:accLayerCs, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.10)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5, yAxisID:'y' },{ label:'Conversion（人）', data:accLayerCvSampled, borderColor:'#10b981', backgroundColor:'rgba(16,185,129,.08)', tension:.3, fill:false, pointRadius:3, borderWidth:2, borderDash:[4,3], yAxisID:'y1' }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, position:'left', ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'Awareness / Consideration（万）' } }, y1:{ beginAtZero:false, min:2100, max:2500, position:'right', ticks:{ callback:(v)=>v.toLocaleString()+'人' }, title:{ display:true, text:'Conversion（人）' }, grid:{ drawOnChartArea:false } } } } });
 </script>
 </body>
 </html>
