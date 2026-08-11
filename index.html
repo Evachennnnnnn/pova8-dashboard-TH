@@ -404,15 +404,15 @@ const expProgress = [0.99,2.29,3.54,4.85,6.23,7.45,8.15,9.71,12.10,14.07,16.09,1
 new Chart(document.getElementById('progressChart'), { type:'line', data:{ labels:spendLabels, datasets:[{ label:'消耗进度（%）', data:spendProgress, borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,.12)', tension:.3, fill:true, pointRadius:4, yAxisID:'y' },{ label:'曝光完成进度（%）', data:expProgress, borderColor:'#0f766e', backgroundColor:'rgba(15,118,110,.10)', tension:.3, fill:true, pointRadius:3, yAxisID:'y' },{ label:'日消耗金额', data:spendAmount, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.08)', tension:.3, fill:false, pointRadius:3, yAxisID:'y1', borderDash:[2,2] }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, max:150, position:'left', ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'进度（%）' } }, y1:{ beginAtZero:true, position:'right', ticks:{ callback:(v)=>v.toLocaleString() }, title:{ display:true, text:'日消耗金额' }, grid:{ drawOnChartArea:false } } } } });
 
 // ACC 人群资产趋势图 (7/1~8/2)
-const accLabels = ["7月1日","7月3日","7月5日","7月7日","7月9日","7月11日","7月13日","7月15日","7月17日","7月19日","7月21日","7月23日","7月25日","7月27日","7月29日","7月31日","8月2日"];
-const accBrand = [915.3,956.2,948.8,950.8,992.0,1018.4,1071.2,1590.0,1846.9,2073.5,2236.9,2280.4,2366.0,2446.1,2474.8,2287.0,2213.8];
-const accIndustry = [2543.6,2551.3,2589.8,2637.3,2665.6,2640.9,2602.7,2673.1,2712.4,2736.9,2698.5,2635.9,2673.4,2708.0,2745.3,2736.7,2762.2];
+const accLabels = ["7月1日","7月3日","7月5日","7月7日","7月9日","7月11日","7月13日","7月15日","7月17日","7月19日","7月21日","7月23日","7月25日","7月27日","7月29日","7月31日","8月1日","8月3日","8月5日","8月7日"];
+const accBrand = [915.3,956.2,948.8,950.8,992.0,1018.4,1071.2,1590.0,1846.9,2073.5,2236.9,2280.4,2366.0,2446.1,2474.8,2287.0,2259.1,2151.7,2043.4,2054.3];
+const accIndustry = [2076.4,2088.6,2117.5,2146.5,2181.3,2171.4,2172.2,2260.6,2304.5,2329.4,2326.8,2284.3,2307.4,2335.1,2366.5,2346.9,2357.3,2362.3,2367.4,2399.3];
 new Chart(document.getElementById('accChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'TECNO ACC 总量（万）', data:accBrand, borderColor:'#06b6d4', backgroundColor:'rgba(6,182,212,.12)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5 },{ label:'行业前5名均值（万）', data:accIndustry, borderColor:'#94a3b8', backgroundColor:'rgba(148,163,184,.08)', tension:.35, fill:false, pointRadius:2, borderDash:[5,3], borderWidth:2 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' }, tooltip:{ callbacks:{ label:(ctx)=>ctx.dataset.label+': '+ctx.parsed.y+'万' } } }, scales:{ y:{ beginAtZero:false, min:800, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'ACC 人群资产（万）' } } } } });
 
 // ACC 分层趋势图 - 三张独立图表
-const accLayerAw = [866.7,906.5,905.9,910.6,948.7,972.6,1024.2,1507.1,1757.6,1969.0,2119.1,2155.2,2229.9,2299.9,2330.8,2168.4,2099.2];
-const accLayerCs = [48.3,49.5,42.7,39.9,43.0,45.5,46.7,82.6,89.1,104.3,117.5,125.0,135.9,145.9,143.8,118.3,114.3];
-const accLayerCvSampled = [2222,2215,2213,2226,2218,2201,2200,2239,2296,2327,2356,2368,2398,2410,2423,2431,2447];
+const accLayerAw = [866.7,906.5,905.9,910.6,948.7,972.6,1024.2,1507.1,1757.6,1969.0,2119.1,2155.2,2229.9,2299.9,2330.8,2168.4,2140.5,2044.5,1947.0,1963.0];
+const accLayerCs = [48.3,49.5,42.7,39.9,43.0,45.5,46.7,82.6,89.1,104.3,117.5,125.0,135.9,145.9,143.8,118.3,118.4,107.0,96.1,91.0];
+const accLayerCvSampled = [2222,2215,2213,2226,2218,2201,2200,2239,2296,2327,2356,2368,2398,2410,2423,2431,2428,2469,2496,2525];
 // Awareness
 new Chart(document.getElementById('accAwChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'Awareness（万）', data:accLayerAw, borderColor:'#0ea5e9', backgroundColor:'rgba(14,165,233,.15)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales:{ y:{ beginAtZero:false, min:800, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'万' } } } } });
 // Consideration
