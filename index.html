@@ -97,7 +97,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
     <div class="card kpi" style="border-left:4px solid #6366f1;"><div class="label">DM总曝光 <span class="status-dot status-green"></span></div><div class="value" style="color:#6366f1;">486.5M</div><div class="sub">= TT 352.9M + Meta 114.5M + Youtube 19.1M</div></div>
     <div class="card kpi" style="border-left:4px solid var(--orange);"><div class="label">3m爆款视频数量 <span class="status-dot status-green"></span></div><div class="value" style="color:var(--orange);">40<span style="font-size:16px;color:var(--muted);">/30条</span></div><div class="sub">KPI 完成 133% ✅ · 超额达标</div></div>
     <div class="card kpi" style="border-left:4px solid #ec4899;"><div class="label">付费评论互动 <span class="status-dot status-green"></span></div><div class="value" style="color:#ec4899;">1,162<span style="font-size:16px;color:var(--muted);">条</span></div><div class="sub">总互动 2,737（点赞2,497+回复240）· 7/1-8/3</div></div>
-    <div class="card kpi" style="border-left:4px solid #06b6d4;"><div class="label">TikTok 人群资产(ACC) <span class="status-dot status-yellow"></span></div><div class="value" style="color:#06b6d4;">2,054<span style="font-size:16px;color:var(--muted);">万</span></div><div class="sub">A 1,963万 · C 91万 · Conv 2,525人 · 截至 8/7</div></div>
+    <div class="card kpi" style="border-left:4px solid #06b6d4;"><div class="label">TikTok 人群资产(ACC) <span class="status-dot status-green"></span></div><div class="value" style="color:#06b6d4;">1,809<span style="font-size:16px;color:var(--muted);">万</span></div><div class="sub">A 1,741万 · C 68万 · Conv 2,783人 · 截至 8/25</div></div>
   </div>
 
   <div class="section" style="margin-bottom:18px;">
@@ -166,7 +166,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
   <div class="section">
     <h2><span class="badge badge-green">TikTok</span>人群资产(ACC)趋势 · 品牌 vs 行业均值</h2>
     <div class="chart"><canvas id="accChart"></canvas></div>
-    <div class="note">7月期间 ACC 人群资产从 915万（7/1）爆发式增长至峰值 2,475万（7/29），最新 2,054万（8/7）。行业前5名均值稳定在 2,076~2,399万区间。7/15 单日新增 391万 为最大增长日。</div>
+    <div class="note">ACC 人群资产从 915万（7/1）增长至峰值 2,475万（7/29），最新 1,809万（8/25）。行业前5名均值稳定在 2,644~2,818万区间。7/15 单日新增 391万 为最大增长日。8月以来资产持续回落，主要受 Awareness 流失影响。</div>
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
@@ -389,15 +389,15 @@ const expProgress = [0.99,2.29,3.54,4.85,6.23,7.45,8.15,9.71,12.10,14.07,16.09,1
 new Chart(document.getElementById('progressChart'), { type:'line', data:{ labels:spendLabels, datasets:[{ label:'消耗进度（%）', data:spendProgress, borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,.12)', tension:.3, fill:true, pointRadius:4, yAxisID:'y' },{ label:'曝光完成进度（%）', data:expProgress, borderColor:'#0f766e', backgroundColor:'rgba(15,118,110,.10)', tension:.3, fill:true, pointRadius:3, yAxisID:'y' },{ label:'日消耗金额', data:spendAmount, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,.08)', tension:.3, fill:false, pointRadius:3, yAxisID:'y1', borderDash:[2,2] }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, max:150, position:'left', ticks:{ callback:(v)=>v+'%' }, title:{ display:true, text:'进度（%）' } }, y1:{ beginAtZero:true, position:'right', ticks:{ callback:(v)=>v.toLocaleString() }, title:{ display:true, text:'日消耗金额' }, grid:{ drawOnChartArea:false } } } } });
 
 // ACC 人群资产趋势图 (7/1~8/2)
-const accLabels = ["7月1日","7月3日","7月5日","7月7日","7月9日","7月11日","7月13日","7月15日","7月17日","7月19日","7月21日","7月23日","7月25日","7月27日","7月29日","7月31日","8月1日","8月3日","8月5日","8月7日"];
-const accBrand = [915.3,956.2,948.8,950.8,992.0,1018.4,1071.2,1590.0,1846.9,2073.5,2236.9,2280.4,2366.0,2446.1,2474.8,2287.0,2259.1,2151.7,2043.4,2054.3];
-const accIndustry = [2543.6,2551.3,2589.8,2637.3,2665.6,2640.9,2602.7,2673.1,2712.4,2736.9,2698.5,2635.9,2673.4,2708.0,2745.3,2736.7,2753.7,2760.0,2790.0,2841.2];
+const accLabels = ['7月1日', '7月3日', '7月5日', '7月7日', '7月9日', '7月11日', '7月13日', '7月15日', '7月17日', '7月19日', '7月21日', '7月23日', '7月25日', '7月27日', '7月29日', '7月31日', '8月2日', '8月4日', '8月6日', '8月8日', '8月10日', '8月12日', '8月14日', '8月16日', '8月18日', '8月20日', '8月22日', '8月24日', '8月25日'];
+const accBrand = [915.3, 956.2, 948.8, 950.8, 992.0, 1018.4, 1071.2, 1590.0, 1846.9, 2073.5, 2236.9, 2280.4, 2366.0, 2446.1, 2474.8, 2287.0, 2213.8, 2094.7, 2042.3, 2267.3, 2152.7, 2074.6, 1951.2, 1848.8, 1785.7, 1758.6, 2017.9, 1780.3, 1808.9];
+const accIndustry = [2798.7, 2778.6, 2798.3, 2818.0, 2798.9, 2764.0, 2700.6, 2661.2, 2639.7, 2619.4, 2545.9, 2473.9, 2491.8, 2504.3, 2518.7, 2580.4, 2619.4, 2638.5, 2703.4, 2771.5, 2761.4, 2746.5, 2689.0, 2671.5, 2690.5, 2678.0, 2712.2, 2644.8, 2653.3];
 new Chart(document.getElementById('accChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'TECNO ACC 总量（万）', data:accBrand, borderColor:'#06b6d4', backgroundColor:'rgba(6,182,212,.12)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5 },{ label:'行业前5名均值（万）', data:accIndustry, borderColor:'#94a3b8', backgroundColor:'rgba(148,163,184,.08)', tension:.35, fill:false, pointRadius:2, borderDash:[5,3], borderWidth:2 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' }, tooltip:{ callbacks:{ label:(ctx)=>ctx.dataset.label+': '+ctx.parsed.y+'万' } } }, scales:{ y:{ beginAtZero:false, min:800, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'ACC 人群资产（万）' } } } } });
 
 // ACC 分层趋势图 - 三张独立图表
-const accLayerAw = [866.7,906.5,905.9,910.6,948.7,972.6,1024.2,1507.1,1757.6,1969.0,2119.1,2155.2,2229.9,2299.9,2330.8,2168.4,2140.5,2044.5,1947.0,1963.0];
-const accLayerCs = [48.3,49.5,42.7,39.9,43.0,45.5,46.7,82.6,89.1,104.3,117.5,125.0,135.9,145.9,143.8,118.3,118.4,107.0,96.1,91.0];
-const accLayerCvSampled = [2222,2215,2213,2226,2218,2201,2200,2239,2296,2327,2356,2368,2398,2410,2423,2431,2428,2469,2496,2525];
+const accLayerAw = [866.7, 906.5, 905.9, 910.6, 948.7, 972.6, 1024.2, 1507.1, 1757.6, 1969.0, 2119.1, 2155.2, 2229.9, 2299.9, 2330.8, 2168.4, 2099.2, 1993.5, 1948.9, 2130.9, 2028.8, 1957.2, 1841.3, 1742.8, 1678.1, 1648.5, 1902.6, 1714.6, 1741.0];
+const accLayerCs = [48.3, 49.5, 42.7, 39.9, 43.0, 45.5, 46.7, 82.6, 89.1, 104.3, 117.5, 125.0, 135.9, 145.9, 143.8, 118.3, 114.3, 101.0, 93.2, 136.1, 123.7, 117.1, 109.6, 105.8, 107.4, 109.8, 115.0, 65.4, 67.6];
+const accLayerCvSampled = [2222, 2215, 2213, 2226, 2218, 2201, 2200, 2239, 2296, 2327, 2356, 2368, 2398, 2410, 2423, 2431, 2447, 2481, 2510, 2566, 2583, 2587, 2602, 2618, 2639, 2674, 2745, 2776, 2783];
 // Awareness
 new Chart(document.getElementById('accAwChart'), { type:'line', data:{ labels:accLabels, datasets:[{ label:'Awareness（万）', data:accLayerAw, borderColor:'#0ea5e9', backgroundColor:'rgba(14,165,233,.15)', tension:.35, fill:true, pointRadius:3, borderWidth:2.5 }]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales:{ y:{ beginAtZero:false, min:800, ticks:{ callback:(v)=>v+'万' }, title:{ display:true, text:'万' } } } } });
 // Consideration
